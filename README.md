@@ -14,17 +14,32 @@ different webpages on same server
 site1.local worked perfectly
 site2.local returned 403 Forbidden
 
+
+<img width="478" height="247" alt="image" src="https://github.com/user-attachments/assets/c06ec6ce-90cf-4da4-a97b-47cd4026a0cc" />
+
+
 ## Timeline
 23:36 - Created site configs and enabled them
 23:36 - nginx -t failed → found "lsiten" typo in site2 config
-
 23:57 - Fixed lsiten typo, nginx reloaded
 23:57 - site1.local working, site2.local still 403
 01:11 - Checked permissions with ls -la
+
+<img width="397" height="115" alt="image" src="https://github.com/user-attachments/assets/d303dfb9-5842-4b79-9ec8-cabddb3deca8" />
+
+
 01:11 - Ran namei -l to trace full path permissions
 01:11 - Tried chmod 755 and chown www-data → still 403
+
+<img width="494" height="197" alt="image" src="https://github.com/user-attachments/assets/88bad793-d28b-4e9d-86e9-48a96996dccf" />
+
 01:18 - Found root cause → file named "inde.html" not "index.html"
+
+<img width="412" height="150" alt="image" src="https://github.com/user-attachments/assets/628e61ff-c0f5-4187-8359-ec45b71f6f03" />
+
 01:18 - Renamed file with mv command → site2.local working
+
+<img width="238" height="47" alt="image" src="https://github.com/user-attachments/assets/205f7996-fee5-4fb9-a97c-cfcfb1f68ba8" />
 
 ## Root Cause
 Filename typo: inde.html instead of index.html
